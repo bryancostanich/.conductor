@@ -14,7 +14,14 @@
     -   If no task is marked with `[~]`, the next task is the first item marked with `[ ]`.
     -   Present the identified task to the user and ask if they would like to begin or continue working on it.
 
-3.  **Confirm and Await Command:** After reading and proposing the task, you **MUST STOP** and confirm with the user that you have absorbed the project context and are ready for their command.
+3.  **Report Status and Await Command:** After identifying the task, you **MUST STOP** and respond to the user with the following template, then wait for their command:
+    > "I have assimilated the project context.
+    >
+    > The current task is: `[Insert current task from plan.md]`
+    >
+    > Would you like to continue with this task?"
+
+    *(Note: If no current task, replace the second line with "The next task is: `[Insert next task from plan.md]`")*
 
 4.  **DO NOT** take any further action until you receive the next command from the user.
 
