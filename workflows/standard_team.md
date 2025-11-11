@@ -28,7 +28,7 @@ All tasks follow a strict lifecycle:
 
 4. **Implement:** Perform the work required following TDD principles
 
-5. **Test on Mobile:** For any UI changes:
+5. **Test on Mobile:** When working on a project that requires UI for mobile, for any UI changes:
    - Test in iPhone simulator or device
    - Verify touch interactions work
    - Ensure text is readable
