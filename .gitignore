@@ -204,3 +204,6 @@ __marimo__/
 
 # Genkit
 .genkit/
+
+# Conductor
+tmp/

@@ -19,13 +19,18 @@ All tasks follow a strict lifecycle:
 
 2. **Mark In Progress:** Before beginning work, edit `plan.md` and change the task from `[ ]` to `[~]`
 
-3. **Write Tests First:** For each task:
-   - Write unit tests that define expected behavior
-   - Ensure tests fail initially (red phase)
-   - Implement code to make tests pass (green phase)
-   - Refactor while keeping tests green (refactor phase)
+3. **Write Failing Tests (Red Phase):**
+   - Create a new test file for the feature or bug fix.
+   - Write one or more unit tests that clearly define the expected behavior and acceptance criteria for the task.
+   - **CRITICAL:** Run the tests and confirm that they fail as expected. This is the "Red" phase of TDD. Do not proceed until you have failing tests.
 
-4. **Implement:** Perform the work required following TDD principles
+4. **Implement to Pass Tests (Green Phase):**
+   - Write the minimum amount of application code necessary to make the failing tests pass.
+   - Run the test suite again and confirm that all tests now pass. This is the "Green" phase.
+
+5. **Refactor (Optional but Recommended):**
+   - With the safety of passing tests, refactor the implementation code and the test code to improve clarity, remove duplication, and enhance performance without changing the external behavior.
+   - Rerun tests to ensure they still pass after refactoring.
 
 5. **Verify Coverage:** Run coverage reports using the project's chosen tools. For example, in a Python project, this might look like:
    ```bash
@@ -44,13 +49,15 @@ All tasks follow a strict lifecycle:
    - Propose a clear, concise commit message following the prose style guide.
    - Perform the commit.
 
-8. **Create dev_log.md entry:**
-   - Obtain the hash of the *just-completed commit* (`git log -1 --format="%H"`).
-   - Create a detailed entry in the development log for the completed task, referencing the commit hash.
-   - Append the entry to `dev_log.md`.
-   - Stage `dev_log.md`.
-   - Propose a commit message for the `dev_log.md` update (e.g., "chore(dev_log): Add entry for [Task Name]").
-   - Perform the commit.
+8. **Create dev_log.md Entry (Append Workflow):**
+   - **Step 8.1: Get Commit Hash:** Obtain the hash of the *just-completed commit* (`git log -1 --format="%H"`).
+   - **Step 8.2: Draft New Entry:** Create a detailed entry in a temporary variable for the completed task, referencing the commit hash.
+   - **Step 8.3: Read Existing Log:** Read the entire current content of `.conductor/dev_log.md`.
+   - **Step 8.4: Prepend and Write:** Prepend the new entry (from Step 8.2) to the existing content (from Step 8.3). Write the combined text back to `.conductor/dev_log.md`, overwriting it with the updated, complete log.
+   - **Step 8.5: Commit Log:**
+     - Stage the updated `.conductor/dev_log.md`.
+     - Propose a commit message for the log update (e.g., "chore(dev_log): Add entry for [Task Name]").
+     - Perform the commit.
 
 
 ### Quality Gates
