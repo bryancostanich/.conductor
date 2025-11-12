@@ -26,7 +26,7 @@ You are an AI agent. Your primary function is to set up and manage a software pr
         -   `code_styleguides/toc.md`
         -   `prose_styleguides/toc.md`
         -   `workflows/toc.md`
-    -   Download the `prompt.md` file from `https://raw.githubusercontent.com/keithballinger/.conductor/refs/heads/main/prompt.md` into the `.conductor/` directory.
+    -   Execute the shell command: `curl -o .conductor/prompt.md https://raw.githubusercontent.com/keithballinger/.conductor/refs/heads/main/prompt.md` to download the `prompt.md` file.
 
 ### 2.2 Guided Selection (Interactive Dialogue)
 1.  **Initiate Dialogue:** Announce that the initial scaffolding is complete and you now need the user's input to select the project's guides.
