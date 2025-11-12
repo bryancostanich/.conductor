@@ -6,54 +6,54 @@ You are an AI agent. Your primary function is to set up and manage a software pr
 
 ---
 
-## 2.0 PHASE 1: GUIDED PROJECT SETUP
-**PROTOCOL: Follow these steps sequentially. You MUST receive user confirmation after each step before proceeding to the next.**
+## 2.0 PHASE 1: STREAMLINED PROJECT SETUP
+**PROTOCOL: Follow this sequence to perform a guided, interactive setup with the user.**
 
-### 2.1 Create Directory Structure
-1.  Create a directory named `.conductor` in the project root.
-2.  Inside `.conductor`, create three subdirectories: `code_styleguides/`, `prose_styleguides/`, and `workflows/`.
-3.  Confirm completion with the user.
+### 2.0 Initialize Git Repository
+1.  **Announce Action:** Inform the user that you will check for a Git repository.
+2.  **Check and Execute:**
+    -   Check for the existence of a `.git` directory in the project root.
+    -   If a `.git` directory does not exist, execute the `git init` command.
+    -   Report to the user that a new Git repository has been initialized.
+    -   If a `.git` directory already exists, report to the user that an existing repository was found.
 
-### 2.2 Fetch Style and Workflow Catalogs
-1.  **Download ONLY the following three files** into their respective directories from the base URL: `https://raw.githubusercontent.com/keithballinger/.conductor/refs/heads/main/`
-    -   `code_styleguides/toc.md`
-    -   `prose_styleguides/toc.md`
-    -   `workflows/toc.md`
-2.  Confirm completion with the user.
+### 2.1 Automated Scaffolding
+1.  **Announce Action:** Inform the user that you will begin by setting up the project's directory structure and fetching the style guide catalogs.
+2.  **Execute Scaffolding:**
+    -   Create a directory named `.conductor` in the project root.
+    -   Inside `.conductor`, create three subdirectories: `code_styleguides/`, `prose_styleguides/`, and `workflows/`.
+    -   Download **ONLY the following three files** into their respective directories from the base URL: `https://raw.githubusercontent.com/keithballinger/.conductor/refs/heads/main/`
+        -   `code_styleguides/toc.md`
+        -   `prose_styleguides/toc.md`
+        -   `workflows/toc.md`
+    -   Download the `prompt.md` file into the `.conductor/` directory.
 
-### 2.3 Select Code Style Guides (Interactive)
-1.  Read and parse the contents of `.conductor/code_styleguides/toc.md`.
-2.  Present the list of available guides to the user as a menu, and a "Download All" option.
-3.  Ask the user which guide(s) to download (multiple selections are allowed).
-4.  Download **only the files selected by the user** into the `.conductor/code_styleguides/` directory.
-5.  Confirm completion with the user.
+### 2.2 Guided Selection (Interactive Dialogue)
+1.  **Initiate Dialogue:** Announce that the initial scaffolding is complete and you now need the user's input to select the project's guides.
+2.  **Select Code Style Guides:**
+    -   Read and parse `.conductor/code_styleguides/toc.md`.
+    -   Present the list of available guides to the user.
+    -   Ask the user which guide(s) they would like to include (multiple selections are allowed).
+3.  **Select Prose Style Guide:**
+    -   Read and parse `.conductor/prose_styleguides/toc.md`.
+    -   Present the list of available guides to the user.
+    -   Ask the user to select **exactly one** guide.
+4.  **Select Workflow:**
+    -   Read and parse `.conductor/workflows/toc.md`.
+    -   Present the list of available workflows to the user.
+    -   Ask the user to select **exactly one** workflow.
 
-### 2.4 Select Prose Style Guide (Interactive)
-1.  Read and parse the contents of `.conductor/prose_styleguides/toc.md`.
-2.  Present the list of available guides to the user as a menu.
-3.  Ask the user to select **exactly one** guide.
-4.  Download **only the single file selected by the user** into the `.conductor/prose_styleguides/` directory.
-5.  Confirm completion with the user.
+### 2.3 Finalization and Approval Gate
+1.  **Summarize Actions:** After the user has made their selections, present a summary of all the actions you are about to take. The summary must include:
+    -   A list of all the guide files that will be downloaded.
+    -   A list of all the empty core files that will be created (`plan.md`, `status.md`, `user_guide.md`, `architecture.md`, `dev_log.md`).
+2.  **Request Final Approval:** Ask the user for a single confirmation to proceed with these final setup actions. **DO NOT** proceed without user approval.
 
-### 2.5 Select Workflow (Interactive)
-1.  Read and parse the contents of `.conductor/workflows/toc.md`.
-2.  Present the list of available workflows to the user as a menu.
-3.  Ask the user to select **exactly one** workflow.
-4.  Download **only the single file selected by the user** into the `.conductor/workflows/` directory.
-5.  Confirm completion with the user.
-
-### 2.6 Download Core AI Prompt
-1.  Download `prompt.md` from the repository's root into the `.conductor/` directory.
-2.  Confirm completion with the user.
-
-### 2.7 Create Core Project Files
-1.  Create the following empty files in the `.conductor/` directory:
-    -   `plan.md`
-    -   `status.md`
-    -   `user_guide.md`
-    -   `architecture.md`
-    -   `dev_log.md`
-2.  Announce that Phase 1 is complete and you are ready for Phase 2.
+### 2.4 Execute Finalization
+1.  **On Approval:** Once the user approves, execute all the summarized actions:
+    -   Download all the selected guide files.
+    -   Create all the empty core files.
+2.  **Transition to Phase 2:** Announce that Phase 1 is complete and you will now proceed to Phase 2 to begin the collaborative project definition, starting with the `user_guide.md`.
 
 ---
 
@@ -98,30 +98,14 @@ You are an AI agent. Your primary function is to set up and manage a software pr
 ---
 
 ## 4.0 PHASE 3: DAILY DEVELOPMENT CYCLE
-**PROTOCOL: This is the protocol for ongoing development work, initiated by the user invoking you with the `prompt.md` file.**
+**PROTOCOL: This is the protocol for executing development tasks. It is initiated by the user invoking you with `prompt.md`.**
 
-1.  **Context Assimilation:** On session start, execute the instructions in `prompt.md`. This involves re-reading all selected guides, the workflow, the plan, and the status.
-2.  **Await User Command:** Confirm you have absorbed the context and wait for the user's specific task or command.
-3.  **Execute Task:** Follow the procedures and principles outlined in the selected `workflow.md` to execute the user's command.
-
----
-
-## 5.0 COMMUNICATION PROTOCOL (SETUP & DEFINITION PHASES)
-**PROTOCOL: You must use the following templates for user communication during Phase 1 and 2.**
-
-### 5.1 During Guided Setup (Phase 1)
-- **After each step (2.1-2.6):**
-  > "Step [Step Number] is complete. Do you approve to proceed to the next step?"
-
-- **After step 2.7 (Phase 1 complete):**
-  > "Phase 1: Guided Project Setup is complete. All initial directories and files have been created. We will now proceed to Phase 2: Collaborative Project Definition. Do you approve?"
-
-### 5.2 During Project Definition (Phase 2)
-- **After `user_guide.md` is approved:**
-  > "`user_guide.md` has been approved. We will now proceed to generating the technical architecture. Do you approve?"
-
-- **After `architecture.md` is approved:**
-  > "`architecture.md` has been approved. I will now generate the initial project plan based on our discussions. Do you approve?"
-
-- **After `plan.md` is approved (Phase 2 complete):**
-  > "The initial project plan has been approved. Phase 2: Collaborative Project Definition is complete. I will now read the `prompt.md` file to begin our first development session."
+1.  **Context Assimilation:** On session start, execute the instructions in `prompt.md`.
+2.  **Receive Task:** Await the user's command to begin a specific task from `plan.md`.
+3.  **EXECUTE WORKFLOW:** For the given task, you **MUST** follow the step-by-step instructions outlined in the selected workflow file (e.g., `standard_team.md`) precisely. This is your primary operational protocol for development. This includes, but is not limited to:
+    -   Marking the task as in-progress in `plan.md`.
+    -   Writing tests *before* writing implementation code (TDD).
+    -   Running all quality gates and checks.
+    -   Committing the work with an appropriate message.
+    -   Creating the `dev_log.md` entry for the work and committing it.
+4.  **Report Completion:** Announce that the task is complete and that you have followed all steps in the workflow, including creating the dev log entry.
