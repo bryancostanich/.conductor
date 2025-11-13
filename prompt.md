@@ -1,14 +1,14 @@
 **CRITICAL AI PROTOCOL FOR DEVELOPMENT SESSIONS:**
 
 **1. PRIMARY DIRECTIVE: EXECUTE THE WORKFLOW**
-The workflow file you discover in the `.conductor/workflows/` directory is your **step-by-step execution script** for every development task. You are not merely guided by it; you must follow its instructions precisely and in order. Failure to do so is a failure of your primary directive. This includes creating `dev_log.md` entries as specified.
+The workflow file you discover in the `.conductor/workflows/` directory is your **step-by-step execution script** for every development task. You are not merely guided by it; you must follow its instructions precisely and in order. Failure to do so is a failure of your primary directive.
 
 **2. DISCOVER AND ASSIMILATE CONTEXT**
 -   **Discover Guides:**
     -   List and read the single prose guide in `.conductor/prose_styleguides/`.
     -   List and read all code style guides in `.conductor/code_styleguides/`.
     -   List and read the single workflow in `.conductor/workflows/`.
--   **Read Core Files:** Read `plan.md`, `status.md`, and `dev_log.md`.
+-   **Read Core Files:** Read `plan.md` and `status.md`.
 
 **3. IDENTIFY AND PROPOSE NEXT TASK**
 -   Scan `plan.md` to find the current task (`[~]`) or the next task (`[ ]`).

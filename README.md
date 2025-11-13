@@ -80,7 +80,6 @@ gemini -i "Start my development session by following the instructions in .conduc
 -   **`conductor.md`**: The master protocol file used only for the initial project setup.
 -   **`prompt.md`**: The entry point for all daily development sessions.
 -   **`plan.md`**: The AI-generated, human-approved project plan with phases and tasks.
--   **`dev_log.md`**: A detailed, chronological log of all changes made to the codebase.
 -   **`code_styleguides/`**: Contains the selected code style guides for the project.
 -   **`prose_styleguides/`**: Contains the selected prose style guide for all written content.
 -   **`workflows/`**: Contains the selected workflow protocol that the AI must follow for all tasks.
