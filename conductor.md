@@ -32,24 +32,24 @@ You are an AI agent. Your primary function is to set up and manage a software pr
 1.  **Initiate Dialogue:** Announce that the initial scaffolding is complete and you now need the user's input to select the project's guides.
 2.  **Select Code Style Guides:**
     -   Read and parse `.conductor/code_styleguides/toc.md`.
-    -   Present the list of available guides to the user as a **numbered list**.
-    -   Ask the user which guide(s) they would like to include.
+    -   Present the list of available guides to the user as a **numbered list**. This list MUST be preceded with the words "CODE STYLE INQUIRY:" on its own line.
+    -   Ask the user which guide(s) they would like to include. 
     -   For each file the user selects, you **MUST** construct and execute a `curl` command to download it. For example, to download `python.md`, execute: `curl -o .conductor/code_styleguides/python.md https://raw.githubusercontent.com/keithballinger/.conductor/refs/heads/main/code_styleguides/python.md`
 3.  **Select Prose Style Guide:**
     -   Read and parse `.conductor/prose_styleguides/toc.md`.
-    -   Present the list of available guides to the user as a **numbered list**.
+    -   Present the list of available guides to the user as a **numbered list**. This list MUST be preceded with the words "PROSE STYLE INQUIRY:" on its own line.
     -   Ask the user to select **exactly one** guide.
     -   You **MUST** construct and execute a `curl` command to download the selected file into the `.conductor/prose_styleguides/` directory.
 4.  **Select Workflow:**
     -   Read and parse `.conductor/workflows/toc.md`.
-    -   Present the list of available workflows to the user as a **numbered list**.
+    -   Present the list of available workflows to the user as a **numbered list**. This list MUST be preceded with the words "WORKFLOW INQUIRY:" on its own line.
     -   Ask the user to select **exactly one** workflow.
     -   You **MUST** construct and execute a `curl` command to download the selected file into the `.conductor/workflows/` directory.
 
 ### 2.3 Finalization and Execution
 1.  **Summarize and Execute:** After the user has made their selections, present a summary of all the actions you are about to take. The summary must include:
     -   A list of all the guide files that will be downloaded.
-    -   A list of all the empty core files that will be created: `.conductor/plan.md`, `.conductor/status.md`, `.conductor/user_guide.md`, `.conductor/architecture.md`, and `.conductor/dev_log.md`.
+    -   A list of all the empty core files that will be created: `.conductor/plan.md`, `.conductor/status.md`, `.conductor/user_guide.md`, and `.conductor/architecture.md`.
 2.  **Execute Actions:** Immediately execute all the summarized actions:
     -   Download all the selected guide files.
     -   Create all the empty core files, ensuring they are placed inside the `.conductor/` directory.
@@ -84,17 +84,15 @@ You are an AI agent. Your primary function is to set up and manage a software pr
 5.  Announce that Phase 2 is complete and you are ready for daily development work.
 6.  **Transition to Development:** To complete the transition, announce that you will now read the `prompt.md` file to begin the first development session. Then, without waiting for a response, execute the instructions within `prompt.md`.
 
-### 3.4 Generate Development Log Entry
-1.  **State Your Goal:** After the task's code changes are committed and all checks have passed, announce that you will now create a development log entry.
+### 3.4 Attach Task Summary using Git Notes
+1.  **State Your Goal:** After the task's code changes are committed and all checks have passed, announce that you will now attach a task summary to the commit using git notes.
 2.  **Obtain Git Commit Hash of Work:**
     -   Execute the shell command: `git log -1 --format="%H"` (This gets the hash of the *last commit*, which should be the one containing the task's code changes).
     -   Store the returned commit hash.
-3.  **Gather Information:** Collect the task name, the obtained git commit hash, a summary of the changes, a list of all created/modified files, and the core "why" for the change.
-4.  **Generate Entry:** Create a new entry in `dev_log.md` following the standard format, including the obtained commit hash.
-5.  **Append & Stage `dev_log.md`:** Append this new entry to the `dev_log.md` file and stage `dev_log.md`.
-6.  **Propose `dev_log.md` Commit:** Propose a commit message for the `dev_log.md` update (e.g., "chore(dev_log): Add entry for [Task Name]").
-7.  **Perform `dev_log.md` Commit:** Execute the commit.
-8.  Announce that the task is fully complete.
+3.  **Gather Information:** Collect the task name, a summary of the changes, a list of all created/modified files, and the core "why" for the change. This information will form the body of the note.
+4.  **Attach Note:** Execute the `git notes add` command to attach the information as a note to the commit hash.
+    - `git notes add -m "<note_content>" <commit_hash>`
+5.  Announce that the task is fully complete.
 
 ---
 
@@ -108,5 +106,5 @@ You are an AI agent. Your primary function is to set up and manage a software pr
     -   Writing tests *before* writing implementation code (TDD).
     -   Running all quality gates and checks.
     -   Committing the work with an appropriate message.
-    -   Creating the `dev_log.md` entry for the work and committing it.
+    -   Creating the git note for the work.
 4.  **Report Completion:** Announce that the task is complete and that you have followed all steps in the workflow, including creating the dev log entry.

@@ -49,15 +49,14 @@ All tasks follow a strict lifecycle:
    - Propose a clear, concise commit message following the prose style guide.
    - Perform the commit.
 
-8. **Create dev_log.md Entry (Append Workflow):**
+8. **Attach Task Summary with Git Notes:**
    - **Step 8.1: Get Commit Hash:** Obtain the hash of the *just-completed commit* (`git log -1 --format="%H"`).
-   - **Step 8.2: Draft New Entry:** Create a detailed entry in a temporary variable for the completed task, referencing the commit hash.
-   - **Step 8.3: Read Existing Log:** Read the entire current content of `.conductor/dev_log.md`.
-   - **Step 8.4: Prepend and Write:** Prepend the new entry (from Step 8.2) to the existing content (from Step 8.3). Write the combined text back to `.conductor/dev_log.md`, overwriting it with the updated, complete log.
-   - **Step 8.5: Commit Log:**
-     - Stage the updated `.conductor/dev_log.md`.
-     - Propose a commit message for the log update (e.g., "chore(dev_log): Add entry for [Task Name]").
-     - Perform the commit.
+   - **Step 8.2: Draft Note Content:** Create a detailed summary for the completed task. This should include the task name, a summary of changes, a list of all created/modified files, and the core "why" for the change.
+   - **Step 8.3: Attach Note:** Use the `git notes` command to attach the summary to the commit.
+     ```bash
+     # The note content from the previous step is passed via the -m flag.
+     git notes add -m "<note content>" <commit_hash>
+     ```
 
 
 ### Quality Gates
@@ -215,7 +214,7 @@ A task is complete when:
 7. Implementation notes added to `plan.md`
 8. `status.md` updated
 9. Changes committed with proper message
-10. `dev_log.md` entry created and committed
+10. Git note with task summary attached to the commit
 
 ## Emergency Procedures
 
