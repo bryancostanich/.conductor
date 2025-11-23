@@ -28,13 +28,13 @@ Conductor can be launched and used one of two ways, the recommended way is to in
 
 #### Registering
 
-Once the Gemini CLI is installed and the Conductor repo has been cloned, you can register Conductor as an extension via the following termina command:
+Once the Gemini CLI is installed and the Conductor repo has been cloned, you can register Conductor as an extension via the following terminal command:
 
 ```bash
 gemini extensions link [path to conductor_repo]/extensions/conductor
 ```
 
-### Launching Conductor
+### Launching Conductor as a Gemini Extension
 
 Conductor can be launched within Gemini using one of two commands:
 
@@ -43,7 +43,7 @@ Conductor can be launched within Gemini using one of two commands:
 
 #### Initializing a Project 
 
-To create a new Conductor project, navigate to the root directory of where you want to create your project, if you're using Git, this would typically be your repo directory.
+To create a new Conductor project, navigate to the root directory of where you want to create your project, if you're using Git, this would typically be your repo directory, and then:
 
 1. Launch Gemini:
     ```bash
@@ -55,36 +55,29 @@ To create a new Conductor project, navigate to the root directory of where you w
     /conductor:init
     ```
 
+#### Loading an Existing Conductor Project
 
+To load an existing Conductor project, navigate to the directory of the project and then:
 
+1. Launch Gemini:
+    ```bash
+    gemini
+    ```
 
+2. Lauch the Conductor project initialization by executing the following command in the Gemini CLI window:
+    ```bash
+    /conductor:resume
+    ```
 
+### Manually Prompting Gemini to use Conductor
 
-**Launch the Gemini CLI with the following command:**
-
-Alternatively, you can manually prompt gemini:
+Alternatively, you can manually prompt Gemini to use Conductor with a prompt such as the following:
 
 ```bash
 gemini -i "I want to set up this project using the Conductor methodology. Your instructions are in the file located at https://raw.githubusercontent.com/keithballinger/.conductor/refs/heads/main/conductor.md. Download that file with curl, then read it. Then begin the setup process as outlined in that file." --yolo --model "gemini-2.5-pro"
 ```
 
-### Daily Development Workflow
-
-After the initial setup is complete, use this prompt **every time** you start a new work session. It directs the AI to read the local `prompt.md` file, understand the project's context, and prepare for the day's tasks.
-
-**Using the Extension**
-
-Launch Gemini
-```bash
-gemini
-```
-
-In the gemini chat window type:
-```bash
-/conductor:resume
-```
-
-**Launch the Gemini CLI with the following command:**
+To resume a Conductor project manually, use a prompt such as the following:
 
 ```bash
 gemini -i "Start my development session by following the instructions in .conductor/prompt.md." --yolo
