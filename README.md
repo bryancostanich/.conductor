@@ -47,13 +47,13 @@ To create a new Conductor project, navigate to the root directory of where you w
 
 1. Launch Gemini:
     ```bash
-gemini
-```
+    gemini
+    ```
 
 2. Lauch the Conductor project initialization by executing the following command in the Gemini CLI window:
     ```bash
-/conductor:init
-```
+    /conductor:init
+    ```
 
 
 
