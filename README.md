@@ -10,8 +10,8 @@ Conductor works by working with you to create a set of Markdown files that descr
 
 The Conductor methodology is divided into two main phases:
 
-1.  **Phase 1: Guided Setup:** A one-time, interactive process where the AI acts as a setup wizard. It scaffolds the project structure, helps you select the appropriate style guides and workflows, and creates the core project management files.
-2.  **Phase 2: Daily Development:** For all subsequent interactions, the AI uses the `.conductor/prompt.md` file to re-assimilate the project's context and rules, ensuring it always adheres to the established workflow for every task.
+1.  **Phase 1: Guided Setup** - A one-time, interactive process where the AI acts as a setup wizard. It scaffolds the project structure, helps you select the appropriate style guides and workflows, and creates the core project management files.
+2.  **Phase 2: Daily Development** - For all subsequent interactions, the AI uses the `.conductor/prompt.md` file to re-assimilate the project's context and rules, ensuring it always adheres to the established workflow for every task.
 
 ---
 
