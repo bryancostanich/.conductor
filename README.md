@@ -4,6 +4,8 @@ Welcome to Conductor, a structured system for managing software projects with an
 
 The core philosophy is to provide the AI with a clear, unambiguous **protocol** to follow, turning it from a simple coding assistant into a proactive project manager. This system ensures a consistent, high-quality development process from initial setup to daily work.
 
+Conductor works by working with you to create a set of Markdown files that describe, and become, the authoritative plan of record, conceptually similar to a specification, and these files become the guardrails that guide your AI agents (used by Conductor) to build and maintain your project or solution.
+
 ## How It Works
 
 The Conductor methodology is divided into two main phases:
@@ -15,33 +17,48 @@ The Conductor methodology is divided into two main phases:
 
 ## Getting Started
 
-To use the Conductor methodology, you will use one of the two prompts below, depending on your project's state.
+Conductor can be launched and used one of two ways, the recommended way is to install it as a registered extension within the Gemini CLI. It can also be called from Gemini manually, via prompting.
 
-### Extension
+### Installing and Registering the Extension
 
-Optionally, you can install Conductor as a Gemini extension with those custom commands:
-- /conductor:init
-- /conductor:resume
+#### Prerequisites
+
+1. To install as a Gemini extension, first make sure you have the [Gemini CLI](https://geminicli.com/) installed.
+2. Because there is not a published executable, you will also need to clone this Conductor repo locally.
+
+#### Registering
+
+Once the Gemini CLI is installed and the Conductor repo has been cloned, you can register Conductor as an extension via the following termina command:
 
 ```bash
-gemini extensions link [path to conductor_repo/extensions/conductor]
+gemini extensions link [path to conductor_repo]/extensions/conductor
 ```
 
-### Initial Project Setup
+### Launching Conductor
 
-To be used **once** in the root of directory/repo. This prompt instructs the AI to fetch the master protocol and begin the guided setup wizard.
+Conductor can be launched within Gemini using one of two commands:
 
-**Using the Extension**
+* `/conductor:init` - Used the first time to initialize your project.
+* `/conductor:resume` - Used to open an existing conductor project.
 
-Launch Gemini
-```bash
+#### Initializing a Project 
+
+To create a new Conductor project, navigate to the root directory of where you want to create your project, if you're using Git, this would typically be your repo directory.
+
+1. Launch Gemini:
+    ```bash
 gemini
 ```
 
-In the gemini chat window type:
-```bash
+2. Lauch the Conductor project initialization by executing the following command in the Gemini CLI window:
+    ```bash
 /conductor:init
 ```
+
+
+
+
+
 
 **Launch the Gemini CLI with the following command:**
 
